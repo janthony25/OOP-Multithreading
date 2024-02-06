@@ -19,8 +19,8 @@ namespace MyProgram
             mainThread.Name = "Main Thread";
             //Console.WriteLine(mainThread.Name);
 
-            Thread thread1 = new Thread(CountDown);
-            Thread thread2 = new Thread(CountUp);
+            Thread thread1 = new Thread(() => CountDown("Timer #1"));
+            Thread thread2 = new Thread(() => CountUp("Timer #2"));
             thread1.Start();
             thread2.Start();
 
@@ -30,7 +30,7 @@ namespace MyProgram
             Console.ReadKey();
         }
 
-        public static void CountDown()
+        public static void CountDown(string name)
         {
             for(int i = 10; i >= 0 ; i--)
             {
@@ -39,7 +39,7 @@ namespace MyProgram
             }
         }
 
-        public static void CountUp()
+        public static void CountUp(string name)
         {
             for (int i = 0; i <= 10; i++)
             {
